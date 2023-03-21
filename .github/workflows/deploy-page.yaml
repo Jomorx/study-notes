@@ -1,0 +1,23 @@
+name: deploy-page
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy-page:
+    name: InitEnvironment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 6.0.2
+      - name: Build
+        run: pnpm i && pnpm run docs:build
+      - name: DeployGP
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.STUDY_NOTES_PAGE }}
+          publish_dir: docs/.vitepress/dist

@@ -1,0 +1,5 @@
+{
+  "name": "@study-notes/utils",
+  "main": "index.ts",
+  "type": "module"
+}

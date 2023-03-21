@@ -1,0 +1,39 @@
+{
+  "name": "study-notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs": "pnpm --filter @study-notes/docs docs:dev",
+    "docs:build": "pnpm --filter @study-notes/docs docs:build",
+    "prepare": "husky install",
+    "prettier": "prettier --write .",
+    "commit": "git add . && git-cz"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.14.6",
+    "commitizen": "^4.3.0",
+    "cz-customizable": "^7.0.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.4",
+    "sass": "^1.59.3",
+    "vite": "^4.1.4",
+    "vitepress": "1.0.0-alpha.50",
+    "vue": "^3.2.47"
+  },
+  "dependencies": {
+    "@study-notes/docs": "workspace:*",
+    "@study-notes/utils": "workspace:*"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.cjs"
+    }
+  }
+}
