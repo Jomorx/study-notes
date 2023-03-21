@@ -1,6 +1,5 @@
 import { getMenuNav } from "../../utils/menu"
 import { defineConfig } from "vitepress"
-import path from "path"
 // https://vitepress.vuejs.org/reference/site-config
 export default defineConfig({
   title: "study-notes",
@@ -50,5 +49,5 @@ export default defineConfig({
 
     socialLinks: [{ icon: "github", link: " https://github.com/Jomorx" }]
   },
-  base: "/test/"
+  base: "/study-notes/"
 })
