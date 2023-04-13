@@ -14,13 +14,39 @@ type Fibonacci<
   Prev extends number[] = [],
   Next extends number[] = [],
   Total extends number[] = [0]
-> = T extends 1 ? Total["length"] : Fibonacci<decrementOne<T>,Next,Total,[...Next,...Total]>
+> = T extends 1
+  ? Total["length"]
+  : Fibonacci<MinusOne<`${T}`>, Next, Total, [...Next, ...Total]>
 
-type decrementOne<
-  T extends number,
-  Temp extends number[] = []
-> = T extends Temp["length"]
-  ? Temp extends [infer F, ...infer Rest]
-    ? Rest["length"]
-    : 0
-  : decrementOne<T,[0, ...Temp]>
+type MinusOne<T extends string> = T extends "0" ? -1: ParseInt<RemoveZero<MinusOneForString<T>>>
+type MinusMap = {
+  "0": 9
+  "1": 0
+  "2": 1
+  "3": 2
+  "4": 3
+  "5": 4
+  "6": 5
+  "7": 6
+  "8": 7
+  "9": 8
+}
+type ReserveString<T extends string> = T extends `${infer F}${infer L}`
+  ? `${ReserveString<L>}${F}`
+  : ""
+type RemoveLast<T extends string> =
+  ReserveString<T> extends `${infer F}${infer L}` ? ReserveString<L> : ""
+type ParseInt<T extends string> = T extends `${infer N extends number}`
+  ? N
+  : never
+type RemoveZero<T extends string> = T extends `${infer F}${infer L}`
+  ? F extends "0"
+    ? RemoveZero<L>
+    : T
+  : T
+type MinusOneForString<T extends string> = T extends `${string}${infer L extends keyof MinusMap}`
+  ? L extends "0"
+    ? `${MinusOneForString<RemoveLast<T>>}${MinusMap[L]}`
+    : `${RemoveLast<T>}${MinusMap[L]}`
+  : never
+type test =MinusOneForString<"5">

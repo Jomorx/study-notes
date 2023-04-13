@@ -15,4 +15,5 @@ type cases1 = [
 
 
 // ============= Your Code Here =============
-type Integer<T> = any
+type Integer<T extends number> =T
+type res = Integer<1.1>
