@@ -11,5 +11,5 @@ type cases = [
 
 
 // ============= Your Code Here =============
-type Unique<T extends any[]> = T[number]
+type Unique<T extends any[],A extends any[]=[]> = T[number] 
 type res = Unique<[string, number, 1, 'a', 1, string, 2, 'b', 2, number]>

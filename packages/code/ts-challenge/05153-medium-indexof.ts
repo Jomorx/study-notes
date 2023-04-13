@@ -19,4 +19,4 @@ type IndexOf<T, U, A extends number[] = []> = T extends [infer F, ...infer Rest]
       : IndexOf<Rest, U, [0, ...A]>
     : IndexOf<Rest, U, [0, ...A]>
   : -1
-type res = IndexOf<[string, 1, number, "a", any], any>
+type res = IndexOf<[any, 1], 1>
