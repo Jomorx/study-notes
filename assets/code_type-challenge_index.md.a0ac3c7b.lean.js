@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./app.bc0fd84c.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"code/type-challenge/index.md","lastUpdated":1681359886000}'),n={name:"code/type-challenge/index.md"};function c(o,r,s,d,p,i){return a(),t("div")}const m=e(n,[["render",c]]);export{_ as __pageData,m as default};
