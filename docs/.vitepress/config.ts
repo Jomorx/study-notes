@@ -37,11 +37,11 @@ export default defineConfig({
           text: "目录",
           link: "/code/",
           items: [
-            // {
-            //   text: "类型体操",
-            //   collapsed: true,
-            //   items: getMenuNav(__dirname, "code/type-challenge")
-            // }
+            {
+              text: "类型体操",
+              collapsed: true,
+              items: getMenuNav(__dirname, "code/type-challenge")
+            }
           ]
         }
       ]

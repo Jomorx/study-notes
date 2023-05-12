@@ -49,4 +49,3 @@ type MinusOneForString<T extends string> = T extends `${string}${infer L extends
     ? `${MinusOneForString<RemoveLast<T>>}${MinusMap[L]}`
     : `${RemoveLast<T>}${MinusMap[L]}`
   : never
-type test =MinusOneForString<"5">
