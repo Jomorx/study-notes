@@ -14,3 +14,4 @@ type cases = [
 
 // ============= Your Code Here =============
 type FlattenDepth = any
+type MinusOne<T> = T
